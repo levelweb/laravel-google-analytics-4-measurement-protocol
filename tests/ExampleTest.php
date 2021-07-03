@@ -1,6 +1,6 @@
 <?php
 
-namespace Freshbitsweb\LaravelGoogleAnalytics4MeasurementProtocol\Tests;
+namespace Levelweb\LaravelGoogleAnalytics4MeasurementProtocol\Tests;
 
 use PHPUnit\Framework\TestCase;
 

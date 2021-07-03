@@ -1,6 +1,6 @@
 <?php
 
-namespace Freshbitsweb\LaravelGoogleAnalytics4MeasurementProtocol\Http\Controllers;
+namespace Levelweb\LaravelGoogleAnalytics4MeasurementProtocol\Http\Controllers;
 
 class StoreGoogleAnalyticsClientIdController
 {

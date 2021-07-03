@@ -9,7 +9,7 @@ This package allows you to post events to Google Analytics 4 from your Laravel b
 ## Installation
 1) Install the package by running this command in your terminal/cmd:
 ```bash
-composer require freshbitsweb/laravel-google-analytics-4-measurement-protocol
+composer require levelweb/laravel-google-analytics-4-measurement-protocol
 ```
 
 2) Set `MEASUREMENT_ID` and `MEASUREMENT_PROTOCOL_API_SECRET` in your .env file.
@@ -29,6 +29,9 @@ php artisan vendor:publish --tag=google-analytics-4-measurement-protocol-config
 ```
 
 The other option is to call the `setClientId($clientId)` method on the `GA4` facade everytime before calling the `postEvent()` method.
+
+5) You can set `user_id` by call `setUserId($userId)` method on the `GA4` facade everytime before calling the `postEvent()` method.
+
 
 ## Usage
 

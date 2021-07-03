@@ -1,6 +1,6 @@
 <?php
 
-namespace Freshbitsweb\LaravelGoogleAnalytics4MeasurementProtocol\Facades;
+namespace Levelweb\LaravelGoogleAnalytics4MeasurementProtocol\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

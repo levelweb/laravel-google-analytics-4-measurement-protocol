@@ -1,6 +1,6 @@
 <?php
 
-namespace Freshbitsweb\LaravelGoogleAnalytics4MeasurementProtocol;
+namespace Levelweb\LaravelGoogleAnalytics4MeasurementProtocol;
 
 use Illuminate\Support\Facades\Blade;
 use Spatie\LaravelPackageTools\Package;

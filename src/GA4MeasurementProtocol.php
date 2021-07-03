@@ -1,6 +1,6 @@
 <?php
 
-namespace Freshbitsweb\LaravelGoogleAnalytics4MeasurementProtocol;
+namespace Levelweb\LaravelGoogleAnalytics4MeasurementProtocol;
 
 use Exception;
 use Illuminate\Support\Facades\Http;
@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Http;
 class GA4MeasurementProtocol
 {
     private string $clientId = '';
+
+    private ?string $userId = null;
 
     private bool $debugging = false;
 
@@ -27,6 +29,13 @@ class GA4MeasurementProtocol
         return $this;
     }
 
+    public function setUserId(string $userId): self
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
     public function enableDebugging(): self
     {
         $this->debugging = true;
@@ -40,15 +49,20 @@ class GA4MeasurementProtocol
             throw new Exception('Please use the package provided blade directive or set client_id manually before posting an event.');
         }
 
+        $params['events'] = [$eventData];
+        if(!is_null($this->userId)) {
+            $params['user_id'] = $this->userId;
+        }
+
+        if($this->clientId) {
+            $params['client_id'] = $this->clientId;
+        }
         $response = Http::withOptions([
             'query' => [
                 'measurement_id' => config('google-analytics-4-measurement-protocol.measurement_id'),
                 'api_secret' => config('google-analytics-4-measurement-protocol.api_secret'),
             ],
-        ])->post($this->getRequestUrl(), [
-            'client_id' => $this->clientId,
-            'events' => [$eventData],
-        ]);
+        ])->post($this->getRequestUrl(), $params);
 
         if ($this->debugging) {
             return $response->json();
